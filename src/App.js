@@ -6,6 +6,7 @@ import Header from './Pages/Shared/Header/Header';
 import Blogs from './Pages/Blogs/Blogs';
 import ProductInfo from './Pages/ProductInfo/ProductInfo';
 import NotFound from './Pages/Shared/NotFound/NotFound';
+import Footer from './Pages/Shared/Footer/Footer';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path='*' element={<NotFound></NotFound>}></Route>
         
       </Routes>
+      <Footer></Footer>
 
     </div>
   );

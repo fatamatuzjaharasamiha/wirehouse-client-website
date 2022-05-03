@@ -15,12 +15,14 @@ const Blogs = () => {
                         It is generally used on the client-side server.It is generally used on the server-side.
                     </Accordion.Body>
                 </Accordion.Item>
+                <br />
                 <Accordion.Item eventKey="1">
                     <Accordion.Header> <span className='fs-5 fw-bold'>Question :  When should you use nodejs and when should you use mongodb?</span>
                     </Accordion.Header>
                     <Accordion.Body><span className='fw-bold'>Answer :</span> Nodejs is primarily used for non-blocking, event-driven servers, due to its single-threaded nature. It's used for traditional web sites and back-end API services, but was designed with real-time, push-based architectures in mind.There are many web servers built with nodejs that will then use MongoDB for storing data. MongoDB offers an API library that runs within a Nodejs application to give us programmatic access to MongoDB so we can create databases and then add, query, update or delete data from the MongoDB database.the two tools both employ JavaScript and JSON.
                     </Accordion.Body>
                 </Accordion.Item>
+                <br />
                 <Accordion.Item eventKey="2">
                     <Accordion.Header> <span className='fs-5 fw-bold'>Question :  Differences between sql and nosql databases.?</span>
                     </Accordion.Header>

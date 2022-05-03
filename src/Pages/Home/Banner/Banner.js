@@ -9,7 +9,7 @@ const Banner = () => {
                 <Carousel.Item>
                     <img
                         className="d-block w-100 slide-img"
-                        src="https://i.ibb.co/CnBwLvN/download.png"
+                        src="https://i.ibb.co/k9hZh8D/Productive-Warehouse-Management.jpg"
                         alt="First slide"
                     />
 
@@ -17,8 +17,9 @@ const Banner = () => {
                 <Carousel.Item>
                     <img
                         className="d-block w-100 slide-img"
-                        src="https://i.ibb.co/k9hZh8D/Productive-Warehouse-Management.jpg"
+                        src="https://i.ibb.co/CnBwLvN/download.png"
                         alt="Second slide"
+                        
                     />
 
 

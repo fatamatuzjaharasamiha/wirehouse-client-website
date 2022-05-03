@@ -12,7 +12,7 @@ const Footer = () => {
                     <div className='col-lg-3 col-sm-6 mx-auto mt-3'>
                         <h5 className='text-warning mb-4'>Products</h5>
                         <p>
-                            <a href="" className='text-white text-decoration-none'>The providers</a>
+                            <a href="https://www.highspeedinternet.com/or/walton" className='text-white text-decoration-none'>The providers</a>
                         </p>
                         <p>
                             <a href="" className='text-white text-decoration-none'>Creativity</a>
@@ -30,7 +30,7 @@ const Footer = () => {
                             <a href="" className='text-white text-decoration-none'>Address</a>
                         </p>
                         <p>
-                            <a href="" className='text-white text-decoration-none'>Help</a>
+                            <a href="https://waltonbd.com/contact" className='text-white text-decoration-none'>Help</a>
                         </p>
                     </div>
 

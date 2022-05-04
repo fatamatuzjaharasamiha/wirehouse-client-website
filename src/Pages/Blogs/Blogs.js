@@ -1,9 +1,9 @@
 import React from 'react';
 import { Accordion } from 'react-bootstrap';
-
+import './Blogs.css'
 const Blogs = () => {
     return (
-        <div className='mx-auto w-75 p-4 m-4'>
+        <div className='mx-auto w-75 p-4 m-4 question'>
             <Accordion> <h1 className='pb-4'>Question and Answer</h1>
                 <Accordion.Item eventKey="0">
                     <Accordion.Header> <span className='fs-5 fw-bold'>Question :  Difference between javascript and nodejs?</span>

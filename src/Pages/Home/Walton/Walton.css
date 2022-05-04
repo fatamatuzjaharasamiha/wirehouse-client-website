@@ -1,6 +1,7 @@
-.text {
-    border-radius: 43px;
-background: #d2bcbc;
-box-shadow:  5px 5px 33px #6d6262,
-             -5px -5px 33px #ffffff;
+.walton {
+    text-align: center;
+}
+
+.display {
+    overflow-x: hidden;
 }

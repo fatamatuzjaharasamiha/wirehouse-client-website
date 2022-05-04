@@ -1,7 +1,6 @@
-import { Button } from 'bootstrap';
 import React from 'react';
-import { Card } from 'react-bootstrap';
 import './WaltonInfo.css'
+
 const WaltonInfo = () => {
     return (
         <div className=''>

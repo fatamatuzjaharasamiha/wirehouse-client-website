@@ -1,8 +1,15 @@
-.text:hover{
+.text:hover {
     color: orange
 }
 
-.info:hover{
+.info:hover {
     background-color: aquamarine;
-   
+
+}
+
+.design {
+    border-radius: 50px;
+    background: #b98888;
+    box-shadow: inset 35px -35px 70px #9d7474,
+        inset -35px 35px 70px #d59c9c;
 }

@@ -11,6 +11,7 @@ const SignUp = () => {
         loading,
         error,
     ] = useCreateUserWithEmailAndPassword(auth);
+    console.log(user,error)
 
     const navigate = useNavigate()
 
@@ -24,12 +25,14 @@ const SignUp = () => {
     const handleSignUp = event => {
         event.preventDefault();
         const email = event.target.email.value;
-         const password = event.target.password.value;
-         console.log(email, password)
-         createUserWithEmailAndPassword(email, password)
-       
+        const password = event.target.password.value;
+
+        console.log(email, password)
+        createUserWithEmailAndPassword(email, password)
+
+
     }
-    if(user){
+    if (user) {
         navigate('/home')
     }
     return (
@@ -48,9 +51,9 @@ const SignUp = () => {
                     <Form.Control type="password" name='password' placeholder="Password" required />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label className='fw-bold'>Confirm Password</Form.Label>
-                    <Form.Control type="password" placeholder="Confirm Password" required />
+                    
                 </Form.Group>
+                
                 <Button className='w-25' variant="primary" type="submit">
                     Sign Up
                 </Button>

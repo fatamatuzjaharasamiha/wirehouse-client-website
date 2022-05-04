@@ -1,17 +1,30 @@
 import React, { useRef } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
+import auth from '../../../firebase.init';
 import './SignIn.css'
 const SignIn = () => {
+    const [
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useSignInWithEmailAndPassword(auth);
     const emailRef = useRef('')
     const passRef = useRef('')
+    const navigate = useNavigate();
 
+    if (user) {
+        navigate('/home')
+    }
 
     const handleSubmit = e => {
         e.preventDefault()
         const email = emailRef.current.value;
         const password = passRef.current.value;
         console.log(email, password)
+        signInWithEmailAndPassword(email, password)
     }
 
 
@@ -34,8 +47,8 @@ const SignIn = () => {
                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
                     <Form.Check type="checkbox" label="Check me out" />
                 </Form.Group>
-                <Button variant="primary" type="submit">
-                    Submit
+                <Button variant="dark" type="submit">
+                    Sign In
                 </Button>
             </Form>
             <p>New to this site? <Link to='/signup' className='text-danger pe-auto text-decoration-none fw-bold'>Please SignUp</Link></p>

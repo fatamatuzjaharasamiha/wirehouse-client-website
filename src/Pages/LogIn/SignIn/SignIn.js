@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import SocialLogin from '../SocialLogin/SocialLogin';
@@ -12,14 +12,20 @@ const SignIn = () => {
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
+    const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(
+        auth
+    );
     const emailRef = useRef('')
     const passRef = useRef('')
     const navigate = useNavigate();
     const location = useLocation();
     let from = location.state?.from?.pathname || "/";
-
+    let errorElement;
     if (user) {
         navigate(from, { replace: true });
+    }
+    if (error) {
+        errorElement = <p className='text-danger fw-bold'>Error: {error?.message}</p>
     }
 
     const handleSubmit = e => {
@@ -28,6 +34,12 @@ const SignIn = () => {
         const password = passRef.current.value;
         console.log(email, password)
         signInWithEmailAndPassword(email, password)
+    }
+
+    const resetPassword = async () => {
+        const email = emailRef.current.value;
+        await sendPasswordResetEmail(email);
+        alert('Sent email');
     }
 
 
@@ -47,14 +59,16 @@ const SignIn = () => {
                     <Form.Label className='fw-bold'>Password</Form.Label>
                     <Form.Control className='bg-success p-2 text-dark bg-opacity-25' ref={passRef} type="password" placeholder="Password" required />
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
                     <Form.Check type="checkbox" label="Check me out" />
-                </Form.Group>
-                <Button className='d-block mx-auto' variant="dark" type="submit">
+                </Form.Group> */}
+                <Button className='d-block mx-auto mb-2' variant="dark" type="submit">
                     Sign In
                 </Button>
             </Form>
-            <p>New to this site? <Link to='/signup' className='text-danger pe-auto text-decoration-none fw-bold'>Please SignUp</Link></p>
+            {errorElement}
+            <p>New to this site? <Link to='/signup' className='text-primary pe-auto text-decoration-none fw-bold'>Please SignUp</Link></p>
+            <p>Forget Password? <Link to='/signIn' className='text-primary pe-auto text-decoration-none fw-bold' onClick={resetPassword}>Reset Password</Link></p>
             <SocialLogin></SocialLogin>
         </div>
     );

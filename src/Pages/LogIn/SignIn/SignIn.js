@@ -1,8 +1,9 @@
 import React, { useRef } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
+import SocialLogin from '../SocialLogin/SocialLogin';
 import './SignIn.css'
 const SignIn = () => {
     const [
@@ -14,9 +15,11 @@ const SignIn = () => {
     const emailRef = useRef('')
     const passRef = useRef('')
     const navigate = useNavigate();
+    const location = useLocation();
+    let from = location.state?.from?.pathname || "/";
 
     if (user) {
-        navigate('/home')
+        navigate(from, { replace: true });
     }
 
     const handleSubmit = e => {
@@ -47,11 +50,12 @@ const SignIn = () => {
                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
                     <Form.Check type="checkbox" label="Check me out" />
                 </Form.Group>
-                <Button variant="dark" type="submit">
+                <Button className='d-block mx-auto' variant="dark" type="submit">
                     Sign In
                 </Button>
             </Form>
             <p>New to this site? <Link to='/signup' className='text-danger pe-auto text-decoration-none fw-bold'>Please SignUp</Link></p>
+            <SocialLogin></SocialLogin>
         </div>
     );
 };

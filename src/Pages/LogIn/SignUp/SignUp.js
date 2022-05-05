@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import SocialLogin from '../SocialLogin/SocialLogin';
+import Loading from '../../Shared/Loading/Loading';
+
+
 const SignUp = () => {
     const [agree, setAgree] = useState(false)
     const [
@@ -11,9 +14,9 @@ const SignUp = () => {
         user,
         loading,
         error,
-    ] = useCreateUserWithEmailAndPassword(auth);
-    console.log(user, error)
-
+    ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+    //  console.log('mail sent')
+    const [updateProfile, updating, updateError] = useUpdateProfile(auth);
     const navigate = useNavigate()
 
     const navigateSignIn = () => {
@@ -23,26 +26,33 @@ const SignUp = () => {
     //     const email = e.target.value;
     //     console.log(email)
     // }
-    const handleSignUp = event => {
+    if (loading || updating) {
+        return <Loading></Loading>
+    }
+    const handleSignUp = async (event) => {
         event.preventDefault();
+        const name = event.target.name.value;
         const email = event.target.email.value;
         const password = event.target.password.value;
 
-        console.log(email, password)
-        if (agree) {
-            createUserWithEmailAndPassword(email, password)
+        console.log(name, email, password)
 
-        }
+        await createUserWithEmailAndPassword(email, password);
+        await updateProfile({ displayName: name });
+        console.log('Updated profile');
 
-
-    }
-    if (user) {
         navigate('/home')
+
     }
+
     return (
         <div className='w-50 mx-auto m-5 shadow-lg p-5 bg-body rounded'>
             <h3 className='text-center'>Sign up</h3>
             <Form onSubmit={handleSignUp}>
+                <Form.Group className="mb-3" controlId="formBasicName">
+                    <Form.Label className='fw-bold'>Name</Form.Label>
+                    <Form.Control type="text" name='name' placeholder="Your name" required />
+                </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label className='fw-bold'>Email address</Form.Label>
                     <Form.Control type="email" name='email' placeholder="Enter email" required />

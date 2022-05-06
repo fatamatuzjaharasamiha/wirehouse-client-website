@@ -27,9 +27,9 @@ const SignIn = () => {
     if (user) {
         navigate(from, { replace: true });
     }
-    if(loading || sending){
+    if (loading || sending) {
         return <Loading></Loading>
-     }
+    }
     if (error) {
         errorElement = <p className='text-danger fw-bold'>Error: {error?.message}</p>
     }
@@ -41,18 +41,18 @@ const SignIn = () => {
         console.log(email, password)
         signInWithEmailAndPassword(email, password)
     }
-
+    //reset
     const resetPassword = async () => {
         const email = emailRef.current.value;
-       if(email){
-        await sendPasswordResetEmail(email);
-        toast('Sent email');
-       }
-       else{
-           toast('Pleaase enter your email address')
-       }
+        if (email) {
+            await sendPasswordResetEmail(email);
+            toast('Sent email');
+        }
+        else {
+            toast('Pleaase enter your email address')
+        }
     }
-
+console.log(user)
 
     return (
         <div className='container mx-auto w-50 m-3 w-50 mx-auto m-5 shadow-lg p-5 bg-body rounded'>

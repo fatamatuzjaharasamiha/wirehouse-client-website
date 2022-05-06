@@ -15,7 +15,7 @@ const SignUp = () => {
         loading,
         error,
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
-    //  console.log('mail sent')
+    
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
     const navigate = useNavigate()
 
@@ -44,6 +44,7 @@ const SignUp = () => {
         navigate('/home')
 
     }
+    console.log(user)
 
     return (
         <div className='w-50 mx-auto m-5 shadow-lg p-5 bg-body rounded'>

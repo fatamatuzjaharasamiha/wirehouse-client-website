@@ -1,13 +1,18 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import useProducts from '../../hooks/useProducts';
 
-const ManageInventory = ({ product }) => {
+const ManageInventory = ({ product, deleteButton }) => {
     const { _id, name, image, description, price, quantity, Supplier } = product;
+    const handleDelete = deleteButton;
+    const [products, setProducts] = useProducts()
+    console.log(products)
     const navigate = useNavigate();
     const navigateToAddItem = () => {
         navigate('/addItem')
     }
+   
 
     return (
         <div className='col-lg-4'>
@@ -20,15 +25,15 @@ const ManageInventory = ({ product }) => {
                     <h6>Quantity : {quantity}</h6>
                     <h6>Supplier Name : {Supplier}</h6>
 
-                    <button className='btn btn-danger mt-3'>Delete</button>
-                    {/* <button onClick={() => handleDelete(product._id)} className='btn btn-danger mt-3'>Delete</button> */}
-                    
+                    {/* <button className='btn btn-danger mt-3'>Delete</button> */}
+                    <button onClick={() => handleDelete(_id)} className='btn btn-danger mt-3'>Delete</button>
+
                     <br />
                     <button onClick={navigateToAddItem} className='btn btn-dark mt-2'>Add new Item</button>
 
                 </Card.Body>
             </Card>
-            
+
         </div>
     );
 };

@@ -1,5 +1,22 @@
 # Getting Started with Create React App
 
+# Project Name : Walton
+##  Livesite Link : [Smart Watch Pro](https://electronics-wirehouse-client.web.app/ "livesite")
+
+### Project Details
+* At first  create client side and Server side
+
+* Make all components in client 
+
+* Maintain folder structure
+
+* its a simple product review application.
+
+* In home page,I present my product Smart watch with some review.When we click 'see all reviews' button,we can go reviews page and see all review information.In Dashboard,there are some chart about sell,investment and review.After that,blogs page contain two question with answer.
+
+* If anyone trying to reach a website that can not found,than it shows 404 error.
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

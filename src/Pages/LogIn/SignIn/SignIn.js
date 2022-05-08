@@ -49,7 +49,7 @@ const SignIn = () => {
             toast('Sent email');
         }
         else {
-            toast('Pleaase enter your email address')
+            toast('Please enter your email address')
         }
     }
 console.log(user)

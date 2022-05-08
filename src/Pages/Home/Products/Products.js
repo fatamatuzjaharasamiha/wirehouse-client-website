@@ -12,8 +12,8 @@ const Products = () => {
     
     return (
         <div className='container'>
-            <h1 className='fw-bold pt-3 text-center text'>Inventory Item</h1>
-            <h4>{products.length}</h4>
+            <h1 className='fw-bold pt-3 text-center text'>Inventory Item : {products.length}</h1>
+           
 
             <div className="row p-5">
             {

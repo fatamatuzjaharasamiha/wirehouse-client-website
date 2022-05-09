@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import Banner from '../Banner/Banner';
 import ManageLink from '../ManageLink/ManageLink';
 import Products from '../Products/Products';

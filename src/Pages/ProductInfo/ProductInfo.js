@@ -14,14 +14,28 @@ const ProductInfo = () => {
         let newQuantity = quantity - 1;
         const newProducts = { ...products, quantity: newQuantity }
         setProducts(newProducts)
+        fetch(`http://localhost:5000/update-product/${myId}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newProducts)
+        })
     }
-     const handleRestock=(event)=>{
-         event.preventDefault();
-         const stock = parseInt(event.target.addStock.value);
-         const newQuantity = quantity + stock;
-         const newProducts = { ...products, quantity: newQuantity }
-         setProducts(newProducts)
-     }
+    const handleRestock = (event) => {
+        event.preventDefault();
+        const stock = parseInt(event.target.addStock.value);
+        const newQuantity = quantity + stock;
+        const newProducts = { ...products, quantity: newQuantity }
+        setProducts(newProducts);
+        fetch(`http://localhost:5000/update-product/${myId}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newProducts)
+        })
+    }
 
     useEffect(() => {
         const url = `http://localhost:5000/inventory/${myId}`
@@ -53,7 +67,7 @@ const ProductInfo = () => {
             <form onSubmit={handleRestock} className='border border-3 mt-2'>
                 <h4>Restock the item</h4>
                 <input type="number" className='bg-success p-1 text-dark bg-opacity-25 rounded' name="addStock" id="" placeholder='Stock Amount' />
-                <input className="dark m-4" type='submit' value ='Restock'/>
+                <input className="dark m-4" type='submit' value='Restock' />
             </form>
 
             <Link to={`/manageInventory`}><button className='btn btn-dark mt-3'>Manage Inventory</button></Link>

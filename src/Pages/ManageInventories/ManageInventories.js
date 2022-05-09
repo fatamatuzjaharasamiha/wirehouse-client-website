@@ -8,7 +8,6 @@ const ManageInventories = () => {
             .then(res => res.json())
             .then(data => setProducts(data))
     }, []);
-
     const handleDelete = (id) => {
         console.log('deleting',id)
         const proceed = window.confirm('Are You Sure???')

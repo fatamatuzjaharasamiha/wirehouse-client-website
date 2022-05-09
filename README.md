@@ -1,10 +1,10 @@
 # Getting Started with Create React App
 
-# Project Name : Walton
-##  Livesite Link : [Smart Watch Pro](https://electronics-wirehouse-client.web.app/ "livesite")
+# Project Name : WALTON
+##  Livesite Link : [WALTON](https://electronics-wirehouse-client.web.app/ "livesite")
 
-### Project Details
-* At first  create client side and Server side
+###  Description
+* At first  create client side and Server side.My projects is about Walton Wirehouse management system.all products display in manage inventory page.We cann add all of the product in walton wirehouse from supplier..when any of the products deliverd,the quantity of products decrease.
 
 * Make all components in client 
 

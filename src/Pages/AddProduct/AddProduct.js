@@ -27,7 +27,7 @@ const AddProduct = () => {
 
     };
     return (
-        <div className='w-50 mx-auto m-4'>
+        <div className='w-50 mx-auto m-4 shadow-lg p-4 m-5 bg-body rounded'>
             <h1 className='text-center'>Add a product</h1>
             <form className='d-flex flex-column' onSubmit={handleAddProduct}>
                 <input className='mb-2' value={user?.email} type="text" placeholder='email' readOnly />

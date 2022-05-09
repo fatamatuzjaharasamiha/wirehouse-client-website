@@ -3,18 +3,22 @@
 # Project Name : WALTON
 ##  Livesite Link : [WALTON](https://electronics-wirehouse-client.web.app/ "livesite")
 
-###  Description
-* At first  create client side and Server side.My projects is about Walton Wirehouse management system.all products display in manage inventory page.We cann add all of the product in walton wirehouse from supplier..when any of the products deliverd,the quantity of products decrease.
+##  Description
+### At first  create client side and Server side.My projects is about Walton Wirehouse management system.all products display in manage inventory page.We cann add all of the product in walton wirehouse from supplier..when any of the products deliverd,the quantity of products decrease.
 
-* Make all components in client 
+## Feature
 
-* Maintain folder structure
+* connecting server side with client side
 
-* its a simple product review application.
+* connecting server with mongodb
 
-* In home page,I present my product Smart watch with some review.When we click 'see all reviews' button,we can go reviews page and see all review information.In Dashboard,there are some chart about sell,investment and review.After that,blogs page contain two question with answer.
+* using react bootstrap.  
 
-* If anyone trying to reach a website that can not found,than it shows 404 error.
+* Maintain folder structure.
+
+* react router.
+
+* data will be inserted in mongodb when we add product from client side
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

@@ -16,7 +16,7 @@ const AddProduct = () => {
         const image = e.target.image.value;
         // const data = { email, name, description, quantity, price, Supplier, image };
         // console.log(data)
-        const url = 'http://localhost:5000/add-inventory';
+        const url = 'https://aqueous-ravine-17126.herokuapp.com/add-inventory';
         fetch(url, {
             method: 'POST',
             headers: {

@@ -4,15 +4,15 @@ import ManageInventory from '../ManageInventory/ManageInventory';
 const ManageInventories = () => {
     const [products, setProducts] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/inventories')
+        fetch('https://aqueous-ravine-17126.herokuapp.com/inventories')
             .then(res => res.json())
             .then(data => setProducts(data))
     }, []);
     const handleDelete = (id) => {
-        console.log('deleting',id)
+        console.log('deleting', id)
         const proceed = window.confirm('Are You Sure???')
         if (proceed) {
-            const url = `http://localhost:5000/inventory/${id}`
+            const url = `https://aqueous-ravine-17126.herokuapp.com/inventory/${id}`
             fetch(url, {
                 method: 'DELETE'
             })
@@ -20,15 +20,15 @@ const ManageInventories = () => {
                 .then(data => {
                     // setProducts(data)
                     // if(data.deleteCount){
-                        const remaining = products.filter(product => product._id !== id)
+                    const remaining = products.filter(product => product._id !== id)
                     setProducts(remaining)
                     // }
-                    
+
                 })
         }
     }
 
-     
+
 
     return (
         <div className='container'>

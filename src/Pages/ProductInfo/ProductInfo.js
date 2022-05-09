@@ -14,7 +14,7 @@ const ProductInfo = () => {
         let newQuantity = quantity - 1;
         const newProducts = { ...products, quantity: newQuantity }
         setProducts(newProducts)
-        fetch(`http://localhost:5000/update-product/${myId}`, {
+        fetch(`https://aqueous-ravine-17126.herokuapp.com/update-product/${myId}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -28,7 +28,7 @@ const ProductInfo = () => {
         const newQuantity = quantity + stock;
         const newProducts = { ...products, quantity: newQuantity }
         setProducts(newProducts);
-        fetch(`http://localhost:5000/update-product/${myId}`, {
+        fetch(`https://aqueous-ravine-17126.herokuapp.com/update-product/${myId}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -38,7 +38,7 @@ const ProductInfo = () => {
     }
 
     useEffect(() => {
-        const url = `http://localhost:5000/inventory/${myId}`
+        const url = `https://aqueous-ravine-17126.herokuapp.com/inventory/${myId}`
         console.log(url)
         fetch(url)
             .then(res => res.json())
@@ -59,7 +59,7 @@ const ProductInfo = () => {
 
                     </Card.Text>
                     <h6>Supplier Name : {products.Supplier}</h6>
-                    <h6>Sold : </h6>
+
                     <Button onClick={handleDeliver} variant="dark m-3">Delivered</Button>
                 </Card.Body>
 
